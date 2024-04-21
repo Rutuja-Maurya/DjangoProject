@@ -1,0 +1,40 @@
+{%extends "homepage.html"%}
+
+{%block content%}
+<center>
+<h1>View Details</h1>
+<form method="post" action="/AddToCart">
+    {%csrf_token%}
+<table class="table">
+    <tr><td>Food Id</td><td>{{food.id}}</td></tr>
+        <input type="hidden" name="fid" value="{{food.id}}"/>
+    <tr><td>Food Name</td><td>{{food.food_name}}</td></tr>
+    <tr><td>Food Price</td><td>{{food.price}}</td></tr>
+    <tr><td>Food Description</td><td>{{food.description}}</td></tr>
+    <tr><td>Category</td><td>{{food.cat_fk}}</td></tr>
+    <tr><td>Image</td><td><img src="{{food.image.url}}" 
+        style="height:200px;width:200px"/></td></tr>
+    <tr><td>Select Quantity</td>
+    <td><select name="qty" class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select></td></tr>
+    <tr><td><button type="submit" class="button btn-success">Add To Cart</button></td>
+    <td></td></tr>
+</table>
+</form>
+</center>
+
+<!-- Alert box script -->
+{% if alert_message %}
+<script>
+    alert("{{ alert_message }}");
+</script>
+{% endif %}
+
+{%endblock%}
+
+
