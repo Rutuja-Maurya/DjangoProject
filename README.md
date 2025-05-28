@@ -1,4 +1,4 @@
-# DjangoProject
+# Online Food Ordering System
 
 ## Project Overview
 
